@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  ShakenOrStirred
-//
-//  Created by Matthew Kruk on 1/20/21.
-//
-
 import SwiftUI
 
 struct ContentView: View {

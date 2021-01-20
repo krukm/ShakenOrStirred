@@ -1,10 +1,3 @@
-//
-//  ShakenOrStirredUITests.swift
-//  ShakenOrStirredUITests
-//
-//  Created by Matthew Kruk on 1/20/21.
-//
-
 import XCTest
 
 class ShakenOrStirredUITests: XCTestCase {

@@ -1,10 +1,3 @@
-//
-//  ShakenOrStirredTests.swift
-//  ShakenOrStirredTests
-//
-//  Created by Matthew Kruk on 1/20/21.
-//
-
 import XCTest
 @testable import ShakenOrStirred
 
