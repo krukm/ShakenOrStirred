@@ -13,6 +13,9 @@
 		DF651A1C25B886D2001F84A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF651A1B25B886D2001F84A6 /* Preview Assets.xcassets */; };
 		DF651A2725B886D2001F84A6 /* ShakenOrStirredTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF651A2625B886D2001F84A6 /* ShakenOrStirredTests.swift */; };
 		DF651A3225B886D2001F84A6 /* ShakenOrStirredUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF651A3125B886D2001F84A6 /* ShakenOrStirredUITests.swift */; };
+		DF651A4325B88F48001F84A6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DF651A4225B88F48001F84A6 /* .gitignore */; };
+		DF651A4825B89244001F84A6 /* DrinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF651A4725B89244001F84A6 /* DrinkObject.swift */; };
+		DFF26D4625B9E122002BFE1A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF26D4525B9E122002BFE1A /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		DF651A2D25B886D2001F84A6 /* ShakenOrStirredUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakenOrStirredUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF651A3125B886D2001F84A6 /* ShakenOrStirredUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakenOrStirredUITests.swift; sourceTree = "<group>"; };
 		DF651A3325B886D2001F84A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF651A4225B88F48001F84A6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DF651A4725B89244001F84A6 /* DrinkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkObject.swift; sourceTree = "<group>"; };
+		DFF26D4525B9E122002BFE1A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,9 @@
 				DF651A1825B886D2001F84A6 /* Assets.xcassets */,
 				DF651A1D25B886D2001F84A6 /* Info.plist */,
 				DF651A1A25B886D2001F84A6 /* Preview Content */,
+				DF651A4225B88F48001F84A6 /* .gitignore */,
+				DF651A4725B89244001F84A6 /* DrinkObject.swift */,
+				DFF26D4525B9E122002BFE1A /* SearchBar.swift */,
 			);
 			path = ShakenOrStirred;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF651A1C25B886D2001F84A6 /* Preview Assets.xcassets in Resources */,
+				DF651A4325B88F48001F84A6 /* .gitignore in Resources */,
 				DF651A1925B886D2001F84A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF651A1725B886D1001F84A6 /* ContentView.swift in Sources */,
+				DFF26D4625B9E122002BFE1A /* SearchBar.swift in Sources */,
+				DF651A4825B89244001F84A6 /* DrinkObject.swift in Sources */,
 				DF651A1525B886D1001F84A6 /* ShakenOrStirredApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
