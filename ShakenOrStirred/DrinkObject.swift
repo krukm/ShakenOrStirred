@@ -1,27 +1,21 @@
+import Foundation
+
 struct DrinkObject: Codable {
-    var idDrink: String
+    var idDrink: String?
     var strDrink: String
     var strDrinkAlternate: String?
-    var strDrinkES: String?
-    var strDrinkDE: String?
-    var strDrinkFR: String?
-    var strDrinkZH_HANS: String?
-    var strDrinkZH_HANT: String?
-    var strTags: String
+    
+    var strTags: String?
     var strVideo: String?
-    var strCategory: String
-    var strIBA: String
-    var strAlcoholic: String
-    var strGlass: String
-    var strInstructions: String
-    var strInstructionsES: String?
-    var strInstructionsDE: String?
-    var strInstructionsFR: String?
-    var strInstructionsZH_HANS: String?
-    var strInstructionsZH_HANT: String?
-    var strDrinkThumb: String
-    var strIngredient1: String
-    var strIngredient2: String
+    var strCategory: String?
+    var strIBA: String?
+    var strAlcoholic: String?
+    var strGlass: String?
+    var strInstructions: String?
+    
+    var strDrinkThumb: String?
+    var strIngredient1: String?
+    var strIngredient2: String?
     var strIngredient3: String?
     var strIngredient4: String?
     var strIngredient5: String?
@@ -35,8 +29,9 @@ struct DrinkObject: Codable {
     var strIngredient13: String?
     var strIngredient14: String?
     var strIngredient15: String?
-    var strMeasure1: String
-    var strMeasure2: String
+    
+    var strMeasure1: String?
+    var strMeasure2: String?
     var strMeasure3: String?
     var strMeasure4: String?
     var strMeasure5: String?
@@ -50,70 +45,12 @@ struct DrinkObject: Codable {
     var strMeasure13: String?
     var strMeasure14: String?
     var strMeasure15: String?
-    var strImageSource: String
+    var strImageSource: String?
     var strImageAttribution: String?
-    var strCreativeCommonsConfirmed: String
-    var dateModified: String
-    
-    enum CodingKeys: String, CodingKey {
-        case idDrink
-        case strDrink
-        case strDrinkAlternate
-        case strDrinkES
-        case strDrinkDE
-        case strDrinkFR
-        case strDrinkZH_HANS = "strDrinkZH-HANS"
-        case strDrinkZH_HANT = "strDrinkZH-HANT"
-        case strTags
-        case strVideo
-        case strCategory
-        case strIBA
-        case strAlcoholic
-        case strGlass
-        case strInstructions
-        case strInstructionsES
-        case strInstructionsDE
-        case strInstructionsFR
-        case strInstructionsZH_HANS = "strInstructionsZH-HANS"
-        case strInstructionsZH_HANT = "strInstructionsZH-HANT"
-        case strDrinkThumb
-        case strIngredient1
-        case strIngredient2
-        case strIngredient3
-        case strIngredient4
-        case strIngredient5
-        case strIngredient6
-        case strIngredient7
-        case strIngredient8
-        case strIngredient9
-        case strIngredient10
-        case strIngredient11
-        case strIngredient12
-        case strIngredient13
-        case strIngredient14
-        case strIngredient15
-        case strMeasure1
-        case strMeasure2
-        case strMeasure3
-        case strMeasure4
-        case strMeasure5
-        case strMeasure6
-        case strMeasure7
-        case strMeasure8
-        case strMeasure9
-        case strMeasure10
-        case strMeasure11
-        case strMeasure12
-        case strMeasure13
-        case strMeasure14
-        case strMeasure15
-        case strImageSource
-        case strImageAttribution
-        case strCreativeCommonsConfirmed
-        case dateModified
-    }
+    var strCreativeCommonsConfirmed: String?
+    var dateModified: String?
 }
 
 struct Drinks: Codable {
-    var Drinks: [DrinkObject]
+    var drinks: [DrinkObject]
 }

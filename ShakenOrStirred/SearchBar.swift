@@ -4,16 +4,17 @@ struct SearchBar: View {
     @Binding var text: String
     @State private var isEditing = false
     
+    var oncommit: ()->()
+    
     var body: some View {
         HStack {
-            TextField("Search ...", text: $text)
+            TextField("Search ...", text: $text, onCommit: oncommit)
                 .padding(7)
                 .padding(.horizontal, 25)
                 .accentColor(.white)
                 .background(Color(.init(red: 153/255, green: 3/255, blue: 3/255, alpha: 1)))
                 .cornerRadius(8)
-                .overlay(
-                    HStack {
+                .overlay( HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.white)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
@@ -28,9 +29,7 @@ struct SearchBar: View {
                                     .padding(.trailing, 8)
                             }
                         }
-                    }
-                )
-                .padding(.horizontal, 10)
+                }).padding(.horizontal, 10)
                 .onTapGesture {
                     self.isEditing = true
                 }
@@ -42,7 +41,6 @@ struct SearchBar: View {
                     UIApplication.shared.endEditing()
                 }) {
                     Text("Cancel")
-                    
                 }.padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
