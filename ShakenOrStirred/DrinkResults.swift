@@ -1,5 +1,5 @@
 import Foundation
 
-class DrinkResults: ObservableObject{
+class DrinkResults: ObservableObject {
     @Published var drinkResults: [DrinkObject] = []
 }

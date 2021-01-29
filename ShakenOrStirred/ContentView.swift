@@ -2,19 +2,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State var showResult: Bool = false
-    @EnvironmentObject var drinkResultsArray: DrinkResults
+    @ObservedObject var drinkResultsArray: DrinkResults
     
     var body: some View {
         NavigationView {
-            SearchView(showResult: $showResult)
-                .background(NavigationLink("", destination: ResultView(),
+            SearchView(showResult: $showResult, drinkResultArray: drinkResultsArray)
+                .background(NavigationLink("", destination: ResultView(drinkResultsArray: drinkResultsArray),
                                 isActive: $showResult))
-        }
+        }.accentColor(Colors.zeus)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(drinkResultsArray: DrinkResults())
     }
 }

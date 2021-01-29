@@ -1,22 +1,22 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @Binding var text: String
     @State private var isEditing = false
-    
+    @Binding var text: String
     var oncommit: ()->()
     
     var body: some View {
         HStack {
             TextField("Search ...", text: $text, onCommit: oncommit)
+                .foregroundColor(Colors.saddle)
                 .padding(7)
                 .padding(.horizontal, 25)
-                .accentColor(.white)
-                .background(Color(.init(red: 153/255, green: 3/255, blue: 3/255, alpha: 1)))
+                .accentColor(Colors.wafer)
+                .background(Colors.arrowTown)
                 .cornerRadius(8)
-                .overlay( HStack {
+                .overlay(HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(.white)
+                            .foregroundColor(Colors.wafer)
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 8)
                         
@@ -25,7 +25,7 @@ struct SearchBar: View {
                                 self.text = ""
                             }) {
                                 Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(.white)
+                                    .foregroundColor(Colors.wafer)
                                     .padding(.trailing, 8)
                             }
                         }
@@ -41,6 +41,7 @@ struct SearchBar: View {
                     UIApplication.shared.endEditing()
                 }) {
                     Text("Cancel")
+                        .foregroundColor(Colors.wafer)
                 }.padding(.trailing, 10)
                 .transition(.move(edge: .trailing))
                 .animation(.default)
@@ -49,7 +50,7 @@ struct SearchBar: View {
     }
 }
 
-extension UIApplication {
+extension UIApplication {    
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
