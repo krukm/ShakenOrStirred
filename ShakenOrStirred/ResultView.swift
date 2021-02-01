@@ -60,27 +60,27 @@ struct ResultView: View {
                     
                     VStack(alignment: .leading) {
                         Group {
-                            Text("\(measurement1) \(ingredient1)")
+                            Text("\(checkClToOz(str: measurement1)) \(ingredient1)")
                                 .font(.body)
                                 .fontWeight(.regular)
                                 .multilineTextAlignment(.leading)
                             
                             if let measurement2 = measurement2, let ingredient2 = ingredient2 {
-                                Text("\(measurement2) \(ingredient2)")
+                                Text("\(checkClToOz(str: measurement2)) \(ingredient2)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement3 = measurement3, let ingredient3 = ingredient3 {
-                                Text("\(measurement3) \(ingredient3)")
+                                Text("\(checkClToOz(str: measurement3)) \(ingredient3)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement4 = measurement4, let ingredient4 = ingredient4 {
-                                Text("\(measurement4) \(ingredient4)")
+                                Text("\(checkClToOz(str: measurement4)) \(ingredient4)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -88,7 +88,7 @@ struct ResultView: View {
                             }
                             
                             if let measurement5 = measurement5, let ingredient5 = ingredient5 {
-                                Text("\(measurement5) \(ingredient5)")
+                                Text("\(checkClToOz(str: measurement5)) \(ingredient5)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -96,7 +96,7 @@ struct ResultView: View {
                             }
                             
                             if let measurement6 = measurement6, let ingredient6 = ingredient6 {
-                                Text("\(measurement6) \(ingredient6)")
+                                Text("\(checkClToOz(str: measurement6)) \(ingredient6)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -104,7 +104,7 @@ struct ResultView: View {
                             }
                             
                             if let measurement7 = measurement7, let ingredient7 = ingredient7 {
-                                Text("\(measurement7) \(ingredient7)")
+                                Text("\(checkClToOz(str: measurement7)) \(ingredient7)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -112,7 +112,7 @@ struct ResultView: View {
                             }
                             
                             if let measurement8 = measurement8, let ingredient8 = ingredient8 {
-                                Text("\(measurement8) \(ingredient8)")
+                                Text("\(checkClToOz(str: measurement8)) \(ingredient8)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -120,14 +120,14 @@ struct ResultView: View {
                             }
                             
                             if let measurement9 = measurement9, let ingredient9 = ingredient9 {
-                                Text("\(measurement9) \(ingredient9)")
+                                Text("\(checkClToOz(str: measurement9)) \(ingredient9)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement10 = measurement10, let ingredient10 = ingredient10 {
-                                Text("\(measurement10) \(ingredient10)")
+                                Text("\(checkClToOz(str: measurement10)) \(ingredient10)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -136,35 +136,35 @@ struct ResultView: View {
                         
                         Group {
                             if let measurement11 = measurement11, let ingredient11 = ingredient11 {
-                                Text("\(measurement11) \(ingredient11)")
+                                Text("\(checkClToOz(str: measurement11)) \(ingredient11)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement12 = measurement12, let ingredient12 = ingredient12 {
-                                Text("\(measurement12) \(ingredient12)")
+                                Text("\(checkClToOz(str: measurement12)) \(ingredient12)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement13 = measurement13, let ingredient13 = ingredient13 {
-                                Text("\(measurement13) \(ingredient13)")
+                                Text("\(checkClToOz(str: measurement13)) \(ingredient13)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement14 = measurement14, let ingredient14 = ingredient14 {
-                                Text("\(measurement14) \(ingredient14)")
+                                Text("\(checkClToOz(str: measurement14)) \(ingredient14)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
                             }
                             
                             if let measurement15 = measurement15, let ingredient15 = ingredient15 {
-                                Text("\(measurement15) \(ingredient15)")
+                                Text("\(checkClToOz(str: measurement15)) \(ingredient15)")
                                     .font(.body)
                                     .fontWeight(.regular)
                                     .multilineTextAlignment(.leading)
@@ -186,5 +186,28 @@ struct ResultView: View {
                 }
             }.padding()
         }.background(Colors.wafer.ignoresSafeArea(.all)).foregroundColor(Colors.zeus)
+    }
+    
+    func checkClToOz(str: String) -> String {
+        var resultString = str
+        
+        if str.contains("cL") || str.contains("cl") {
+            resultString = clipString(str: str, delimiter: " ")
+            
+            if let number = Double(resultString) {
+                resultString = "\(convertClToOz(double: number)) oz"
+            }
+        }
+        
+        return  resultString
+    }
+    
+    func clipString(str: String, delimiter: String) -> String {
+        guard let stopIndex = str.range(of: delimiter)?.lowerBound else { return str }
+        return .init(str.prefix(upTo: stopIndex))
+    }
+    
+    func convertClToOz(double: Double) -> String {
+        return String(format: "%.1f", (double * 0.33814))
     }
 }
