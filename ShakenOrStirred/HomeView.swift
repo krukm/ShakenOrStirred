@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SearchView: View {
+struct HomeView: View {
     @Binding var showResult: Bool
     @ObservedObject var drinkResultArray: DrinkResults
     @ObservedObject var errorView: ErrorView
@@ -49,6 +49,7 @@ struct SearchView: View {
                                 }
                             })
                         })
+                        .background(NavigationLink("", destination: ResultView(drinkResultsArray: drinkResultArray), isActive: $showResult))
                         
                         if errorView.showErrorView {
                             Text("Could not find a drink named \(searchText)")
@@ -63,6 +64,6 @@ struct SearchView: View {
                     }
                 }
             }
-        }
+        }.accentColor(Colors.zeus)
     }
 }

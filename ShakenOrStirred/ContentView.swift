@@ -6,11 +6,8 @@ struct ContentView: View {
     @State var showResult: Bool = false
     
     var body: some View {
-        NavigationView {
-            SearchView(showResult: $showResult, drinkResultArray: drinkResultsArray, errorView: errorView)
-                .background(NavigationLink("", destination: ResultView(drinkResultsArray: drinkResultsArray),
-                                isActive: $showResult))
-        }.accentColor(Colors.zeus)
+        HomeView(showResult: $showResult, drinkResultArray: drinkResultsArray, errorView: errorView)
+            .background(NavigationLink("", destination: ResultView(drinkResultsArray: drinkResultsArray), isActive: $showResult))
     }
 }
 
