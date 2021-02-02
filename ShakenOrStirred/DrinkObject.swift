@@ -52,5 +52,5 @@ struct DrinkObject: Codable {
 }
 
 struct Drinks: Codable {
-    var drinks: [DrinkObject]
+    var drinks: [DrinkObject?]
 }

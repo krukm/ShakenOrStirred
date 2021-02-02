@@ -1,8 +1,8 @@
 import Foundation
 
 class NetworkManager {
-    
-    func getDrinkJSON(drinkName: String, completion: @escaping (Drinks) -> ()) {
+        
+    func getDrinkJSON(drinkName: String, completion: @escaping (Drinks?, Error?) -> ()) {
         let name = drinkName.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "%20")
         let urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(name)"
                 
@@ -11,10 +11,11 @@ class NetworkManager {
                 if let data = data {
                     let decoder = JSONDecoder()
                     do {
-                        let drinkResult = try decoder.decode(Drinks.self, from: data)
-                        completion(drinkResult)
+                        let drinkResult = try decoder.decode(Drinks?.self, from: data)
+                        completion(drinkResult, nil)
                     } catch {
-                        print(error)
+                        completion(nil, error)
+                        print("error: \(error)")
                     }
                 }
             }.resume()

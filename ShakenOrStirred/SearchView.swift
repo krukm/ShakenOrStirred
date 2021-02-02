@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = ""
     @Binding var showResult: Bool
     @ObservedObject var drinkResultArray: DrinkResults
+    @ObservedObject var errorView: ErrorView
+    @State private var searchText = ""
     
     let networkManager = NetworkManager()
     
@@ -28,16 +29,34 @@ struct SearchView: View {
                         
                         Spacer()
                         
-                        SearchBar(text: $searchText, oncommit: {
-                            networkManager.getDrinkJSON(drinkName: searchText, completion: { result in
+                        SearchBar(text: $searchText, errorView: errorView, oncommit: {
+                            networkManager.getDrinkJSON(drinkName: searchText, completion: { result, error in
+                                if error != nil {
+                                    DispatchQueue.main.async {
+                                        errorView.showErrorView = true
+                                    }
+                                }
+                                
                                 DispatchQueue.main.async {
                                     drinkResultArray.drinkResults.removeAll()
-                                    drinkResultArray.drinkResults.append(result.drinks[0])
-                                    print(drinkResultArray.drinkResults[0])
+                                    
+                                    if let drink = result?.drinks[0] {
+                                        drinkResultArray.drinkResults.append(drink)
+                                        showResult = true
+                                        print(drink)
+                                    }
                                 }
-                                showResult = true
                             })
                         })
+                        
+                        if errorView.showErrorView {
+                            Text("Could not find a drink named \(searchText)")
+                                .padding(10)
+                                .background(Color.white)
+                                .foregroundColor(Color.red)
+                                .cornerRadius(8)
+                                .transition(AnyTransition.scale.animation(.easeInOut(duration: 0.5)))
+                        }
                         
                         Spacer(minLength: 300)
                     }
