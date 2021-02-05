@@ -16,21 +16,21 @@ struct SearchBar: View {
                 .background(Colors.arrowTown)
                 .cornerRadius(8)
                 .overlay(HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(Colors.wafer)
-                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            .padding(.leading, 8)
-                        
-                        if isEditing {
-                            Button(action: {
-                                self.searchText = ""
-                                errorView.showErrorView = false
-                            }) {
-                                Image(systemName: "multiply.circle.fill")
-                                    .foregroundColor(Colors.wafer)
-                                    .padding(.trailing, 8)
-                            }
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(Colors.wafer)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 8)
+                    
+                    if isEditing {
+                        Button(action: {
+                            self.searchText = ""
+                            errorView.showErrorView = false
+                        }) {
+                            Image(systemName: "multiply.circle.fill")
+                                .foregroundColor(Colors.wafer)
+                                .padding(.trailing, 8)
                         }
+                    }
                 })
                 .padding(.horizontal, 10)
                 .onTapGesture {

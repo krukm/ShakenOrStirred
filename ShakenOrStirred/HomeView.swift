@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var showResult: Bool
+    @Binding var showResultList: Bool
     @ObservedObject var drinkResultArray: DrinkResults
     @ObservedObject var errorView: ErrorView
     @State private var searchText = ""
+    @State private var searchType: Int = SearchType.name.asInt()
+    @State var showResultView: Bool = false
     
     let networkManager = NetworkManager()
     
@@ -31,28 +33,32 @@ struct HomeView: View {
                         Spacer()
                         
                         SearchBar(searchText: $searchText, errorView: errorView, oncommit: {
-                            networkManager.getDrinkJSON(drinkName: searchText, completion: { result, error in                                
+                            
+                            networkManager.getDrinkJSON(searchString: searchText, searchType: searchType, completion: { result, error in
                                 if error != nil {
                                     DispatchQueue.main.async {
                                         errorView.showErrorView = true
-                                        showResult = false
+                                        showResultList = false
                                     }
                                 }
                                 
                                 DispatchQueue.main.async {
-                                    if let drink = result?.drinks[0] {
+                                    if let drinks = result?.drinks {
                                         drinkResultArray.drinkResults.removeAll()
-                                        drinkResultArray.drinkResults.append(drink)
-                                        showResult = true
-                                        print(drink)
+                                        drinkResultArray.drinkResults.append(contentsOf: drinks)
+                                        showResultList = true
                                     }
                                 }
                             })
                         })
-                        .background(NavigationLink("", destination: ResultView(drinkResultsArray: drinkResultArray), isActive: $showResult))
+                        .background(NavigationLink("", destination: DrinkListView(showResultView: $showResultView, drinkResultArray: drinkResultArray, showListView: showResultList), isActive: $showResultList))
+                        
+                        RadioButtonGroups { selected in
+                            self.searchType = selected
+                        }
                         
                         if errorView.showErrorView {
-                            Text("Could not find a drink named \(searchText)")
+                            Text("Could not find anything matching \(searchText)")
                                 .padding(10)
                                 .background(Color.white)
                                 .foregroundColor(Color.red)

@@ -22,6 +22,12 @@
 		DFAE4BE825C4842200C8D3BA /* SearchString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAE4BE725C4842200C8D3BA /* SearchString.swift */; };
 		DFAE4C5025C4BF8500C8D3BA /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAE4C4F25C4BF8500C8D3BA /* Colors.swift */; };
 		DFAE4C7F25C9A41B00C8D3BA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAE4C7E25C9A41B00C8D3BA /* ErrorView.swift */; };
+		DFAE4CB625C9E70C00C8D3BA /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAE4CB525C9E70C00C8D3BA /* SearchType.swift */; };
+		DFDB32B625CB031D002E8838 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB32B525CB031D002E8838 /* RadioButton.swift */; };
+		DFDB32BB25CB0555002E8838 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB32BA25CB0555002E8838 /* RadioButtonGroup.swift */; };
+		DFDB331425CB4B31002E8838 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB331325CB4B31002E8838 /* Ingredient.swift */; };
+		DFDB332125CB59BB002E8838 /* DrinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB332025CB59BB002E8838 /* DrinkListView.swift */; };
+		DFDB336825CDAEEA002E8838 /* IndexedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB336725CDAEEA002E8838 /* IndexedCollection.swift */; };
 		DFF26D4625B9E122002BFE1A /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF26D4525B9E122002BFE1A /* SearchBar.swift */; };
 		DFF26D6525BA1F17002BFE1A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF26D6425BA1F17002BFE1A /* NetworkManager.swift */; };
 		DFF26D9425C1E401002BFE1A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF26D9325C1E401002BFE1A /* HomeView.swift */; };
@@ -67,6 +73,12 @@
 		DFAE4BE725C4842200C8D3BA /* SearchString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchString.swift; sourceTree = "<group>"; };
 		DFAE4C4F25C4BF8500C8D3BA /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DFAE4C7E25C9A41B00C8D3BA /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		DFAE4CB525C9E70C00C8D3BA /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
+		DFDB32B525CB031D002E8838 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		DFDB32BA25CB0555002E8838 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
+		DFDB331325CB4B31002E8838 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		DFDB332025CB59BB002E8838 /* DrinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListView.swift; sourceTree = "<group>"; };
+		DFDB336725CDAEEA002E8838 /* IndexedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedCollection.swift; sourceTree = "<group>"; };
 		DFF26D4525B9E122002BFE1A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DFF26D6425BA1F17002BFE1A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DFF26D9325C1E401002BFE1A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -121,24 +133,30 @@
 		DF651A1325B886D1001F84A6 /* ShakenOrStirred */ = {
 			isa = PBXGroup;
 			children = (
-				DF651A1425B886D1001F84A6 /* ShakenOrStirredApp.swift */,
-				DF651A1625B886D1001F84A6 /* ContentView.swift */,
-				DF651A1825B886D2001F84A6 /* Assets.xcassets */,
-				DF651A1D25B886D2001F84A6 /* Info.plist */,
-				DF651A1A25B886D2001F84A6 /* Preview Content */,
 				DF651A4225B88F48001F84A6 /* .gitignore */,
-				DF651A4725B89244001F84A6 /* DrinkObject.swift */,
-				DFF26D4525B9E122002BFE1A /* SearchBar.swift */,
-				DFF26D6425BA1F17002BFE1A /* NetworkManager.swift */,
-				DFF26D9325C1E401002BFE1A /* HomeView.swift */,
-				DFF26D9825C1E546002BFE1A /* ResultView.swift */,
-				DFAE4B8F25C2106900C8D3BA /* DrinkResults.swift */,
-				DFAE4B9A25C214B300C8D3BA /* TintOverlay.swift */,
 				DFAE4BA525C320F700C8D3BA /* ApiImageLoader.swift */,
 				DFAE4BAF25C3230100C8D3BA /* ApiImageView.swift */,
-				DFAE4BE725C4842200C8D3BA /* SearchString.swift */,
+				DF651A1825B886D2001F84A6 /* Assets.xcassets */,
 				DFAE4C4F25C4BF8500C8D3BA /* Colors.swift */,
+				DF651A1625B886D1001F84A6 /* ContentView.swift */,
+				DFDB332025CB59BB002E8838 /* DrinkListView.swift */,
+				DF651A4725B89244001F84A6 /* DrinkObject.swift */,
+				DFAE4B8F25C2106900C8D3BA /* DrinkResults.swift */,
 				DFAE4C7E25C9A41B00C8D3BA /* ErrorView.swift */,
+				DFF26D9325C1E401002BFE1A /* HomeView.swift */,
+				DF651A1D25B886D2001F84A6 /* Info.plist */,
+				DFDB331325CB4B31002E8838 /* Ingredient.swift */,
+				DFF26D6425BA1F17002BFE1A /* NetworkManager.swift */,
+				DF651A1A25B886D2001F84A6 /* Preview Content */,
+				DFDB32B525CB031D002E8838 /* RadioButton.swift */,
+				DFDB32BA25CB0555002E8838 /* RadioButtonGroup.swift */,
+				DFF26D9825C1E546002BFE1A /* ResultView.swift */,
+				DFF26D4525B9E122002BFE1A /* SearchBar.swift */,
+				DFAE4BE725C4842200C8D3BA /* SearchString.swift */,
+				DFAE4CB525C9E70C00C8D3BA /* SearchType.swift */,
+				DF651A1425B886D1001F84A6 /* ShakenOrStirredApp.swift */,
+				DFAE4B9A25C214B300C8D3BA /* TintOverlay.swift */,
+				DFDB336725CDAEEA002E8838 /* IndexedCollection.swift */,
 			);
 			path = ShakenOrStirred;
 			sourceTree = "<group>";
@@ -301,10 +319,16 @@
 			files = (
 				DFAE4BB025C3230100C8D3BA /* ApiImageView.swift in Sources */,
 				DF651A1725B886D1001F84A6 /* ContentView.swift in Sources */,
+				DFDB331425CB4B31002E8838 /* Ingredient.swift in Sources */,
+				DFDB32BB25CB0555002E8838 /* RadioButtonGroup.swift in Sources */,
 				DFF26D4625B9E122002BFE1A /* SearchBar.swift in Sources */,
+				DFAE4CB625C9E70C00C8D3BA /* SearchType.swift in Sources */,
 				DFF26D6525BA1F17002BFE1A /* NetworkManager.swift in Sources */,
+				DFDB332125CB59BB002E8838 /* DrinkListView.swift in Sources */,
 				DF651A4825B89244001F84A6 /* DrinkObject.swift in Sources */,
 				DFF26D9425C1E401002BFE1A /* HomeView.swift in Sources */,
+				DFDB32B625CB031D002E8838 /* RadioButton.swift in Sources */,
+				DFDB336825CDAEEA002E8838 /* IndexedCollection.swift in Sources */,
 				DFF26D9925C1E546002BFE1A /* ResultView.swift in Sources */,
 				DFAE4B9B25C214B300C8D3BA /* TintOverlay.swift in Sources */,
 				DFAE4C5025C4BF8500C8D3BA /* Colors.swift in Sources */,

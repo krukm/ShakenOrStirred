@@ -2,46 +2,47 @@ import SwiftUI
 
 struct ResultView: View {
     @ObservedObject var drinkResultsArray: DrinkResults
+    var drinkNumber: Int
     
     var body: some View {
-        let urlString = drinkResultsArray.drinkResults[0].strDrinkThumb
+        let urlString = drinkResultsArray.drinkResults[drinkNumber].strDrinkThumb
         let url = URL(string: urlString ?? "")
         
-        let name = drinkResultsArray.drinkResults[0].strDrink
-        let catergory = drinkResultsArray.drinkResults[0].strCategory
-        let instructions = drinkResultsArray.drinkResults[0].strInstructions
+        let name = drinkResultsArray.drinkResults[drinkNumber].strDrink
+        let catergory = drinkResultsArray.drinkResults[drinkNumber].strCategory
+        let instructions = drinkResultsArray.drinkResults[drinkNumber].strInstructions
         
-        let ingredient1 = drinkResultsArray.drinkResults[0].strIngredient1 ?? "No Ingredients found"
-        let ingredient2 = drinkResultsArray.drinkResults[0].strIngredient2
-        let ingredient3 = drinkResultsArray.drinkResults[0].strIngredient3
-        let ingredient4 = drinkResultsArray.drinkResults[0].strIngredient4
-        let ingredient5 = drinkResultsArray.drinkResults[0].strIngredient5
-        let ingredient6 = drinkResultsArray.drinkResults[0].strIngredient6
-        let ingredient7 = drinkResultsArray.drinkResults[0].strIngredient7
-        let ingredient8 = drinkResultsArray.drinkResults[0].strIngredient8
-        let ingredient9 = drinkResultsArray.drinkResults[0].strIngredient9
-        let ingredient10 = drinkResultsArray.drinkResults[0].strIngredient10
-        let ingredient11 = drinkResultsArray.drinkResults[0].strIngredient11
-        let ingredient12 = drinkResultsArray.drinkResults[0].strIngredient12
-        let ingredient13 = drinkResultsArray.drinkResults[0].strIngredient13
-        let ingredient14 = drinkResultsArray.drinkResults[0].strIngredient14
-        let ingredient15 = drinkResultsArray.drinkResults[0].strIngredient15
+        let ingredient1 = drinkResultsArray.drinkResults[drinkNumber].strIngredient1 ?? ""
+        let ingredient2 = drinkResultsArray.drinkResults[drinkNumber].strIngredient2
+        let ingredient3 = drinkResultsArray.drinkResults[drinkNumber].strIngredient3
+        let ingredient4 = drinkResultsArray.drinkResults[drinkNumber].strIngredient4
+        let ingredient5 = drinkResultsArray.drinkResults[drinkNumber].strIngredient5
+        let ingredient6 = drinkResultsArray.drinkResults[drinkNumber].strIngredient6
+        let ingredient7 = drinkResultsArray.drinkResults[drinkNumber].strIngredient7
+        let ingredient8 = drinkResultsArray.drinkResults[drinkNumber].strIngredient8
+        let ingredient9 = drinkResultsArray.drinkResults[drinkNumber].strIngredient9
+        let ingredient10 = drinkResultsArray.drinkResults[drinkNumber].strIngredient10
+        let ingredient11 = drinkResultsArray.drinkResults[drinkNumber].strIngredient11
+        let ingredient12 = drinkResultsArray.drinkResults[drinkNumber].strIngredient12
+        let ingredient13 = drinkResultsArray.drinkResults[drinkNumber].strIngredient13
+        let ingredient14 = drinkResultsArray.drinkResults[drinkNumber].strIngredient14
+        let ingredient15 = drinkResultsArray.drinkResults[drinkNumber].strIngredient15
         
-        let measurement1 = drinkResultsArray.drinkResults[0].strMeasure1 ?? ""
-        let measurement2 = drinkResultsArray.drinkResults[0].strMeasure2
-        let measurement3 = drinkResultsArray.drinkResults[0].strMeasure3
-        let measurement4 = drinkResultsArray.drinkResults[0].strMeasure4
-        let measurement5 = drinkResultsArray.drinkResults[0].strMeasure5
-        let measurement6 = drinkResultsArray.drinkResults[0].strMeasure6
-        let measurement7 = drinkResultsArray.drinkResults[0].strMeasure7
-        let measurement8 = drinkResultsArray.drinkResults[0].strMeasure8
-        let measurement9 = drinkResultsArray.drinkResults[0].strMeasure9
-        let measurement10 = drinkResultsArray.drinkResults[0].strMeasure10
-        let measurement11 = drinkResultsArray.drinkResults[0].strMeasure11
-        let measurement12 = drinkResultsArray.drinkResults[0].strMeasure12
-        let measurement13 = drinkResultsArray.drinkResults[0].strMeasure13
-        let measurement14 = drinkResultsArray.drinkResults[0].strMeasure14
-        let measurement15 = drinkResultsArray.drinkResults[0].strMeasure15
+        let measurement1 = drinkResultsArray.drinkResults[drinkNumber].strMeasure1 ?? ""
+        let measurement2 = drinkResultsArray.drinkResults[drinkNumber].strMeasure2
+        let measurement3 = drinkResultsArray.drinkResults[drinkNumber].strMeasure3
+        let measurement4 = drinkResultsArray.drinkResults[drinkNumber].strMeasure4
+        let measurement5 = drinkResultsArray.drinkResults[drinkNumber].strMeasure5
+        let measurement6 = drinkResultsArray.drinkResults[drinkNumber].strMeasure6
+        let measurement7 = drinkResultsArray.drinkResults[drinkNumber].strMeasure7
+        let measurement8 = drinkResultsArray.drinkResults[drinkNumber].strMeasure8
+        let measurement9 = drinkResultsArray.drinkResults[drinkNumber].strMeasure9
+        let measurement10 = drinkResultsArray.drinkResults[drinkNumber].strMeasure10
+        let measurement11 = drinkResultsArray.drinkResults[drinkNumber].strMeasure11
+        let measurement12 = drinkResultsArray.drinkResults[drinkNumber].strMeasure12
+        let measurement13 = drinkResultsArray.drinkResults[drinkNumber].strMeasure13
+        let measurement14 = drinkResultsArray.drinkResults[drinkNumber].strMeasure14
+        let measurement15 = drinkResultsArray.drinkResults[drinkNumber].strMeasure15
         
         VStack(alignment: .center, spacing: 8) {
             Group {

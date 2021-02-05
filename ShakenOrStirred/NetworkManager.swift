@@ -2,11 +2,22 @@ import Foundation
 
 class NetworkManager {
         
-    func getDrinkJSON(drinkName: String, completion: @escaping (Drinks?, Error?) -> ()) {
-        let name = drinkName.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "%20")
-        let urlString = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=\(name)"
-                
-        if let url = URL(string: urlString) {
+    func getDrinkJSON(searchString: String = "", searchType: Int = 0, id: String = "", completion: @escaping (Drinks?, Error?) -> ()) {
+        var baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/"
+        let searchValue = searchString.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "%20")
+        
+        switch searchType {
+            case SearchType.name.asInt():
+                baseUrl += "search.php?s=\(searchValue)"
+            case SearchType.ingredient.asInt():
+                baseUrl += "filter.php?i=\(searchValue)"
+            case SearchType.id.asInt():
+                baseUrl += "lookup.php?i=\(id)"
+            default:
+                return
+        }
+        
+        if let url = URL(string: baseUrl) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     let decoder = JSONDecoder()

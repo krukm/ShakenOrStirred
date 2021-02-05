@@ -1,7 +1,7 @@
 import Foundation
 
-struct DrinkObject: Codable {
-    var idDrink: String?
+struct DrinkObject: Codable, Identifiable, Hashable {
+    var id: String
     var strDrink: String
     var strDrinkAlternate: String?
     
@@ -12,8 +12,8 @@ struct DrinkObject: Codable {
     var strAlcoholic: String?
     var strGlass: String?
     var strInstructions: String?
-    
     var strDrinkThumb: String?
+    
     var strIngredient1: String?
     var strIngredient2: String?
     var strIngredient3: String?
@@ -45,12 +45,65 @@ struct DrinkObject: Codable {
     var strMeasure13: String?
     var strMeasure14: String?
     var strMeasure15: String?
+    
     var strImageSource: String?
     var strImageAttribution: String?
     var strCreativeCommonsConfirmed: String?
     var dateModified: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "idDrink"
+        case strDrink
+        case strDrinkAlternate
+        
+        case strTags
+        case strVideo
+        case strCategory
+        case strIBA
+        case strAlcoholic
+        case strGlass
+        case strInstructions
+        case strDrinkThumb
+        
+        case strIngredient1
+        case strIngredient2
+        case strIngredient3
+        case strIngredient4
+        case strIngredient5
+        case strIngredient6
+        case strIngredient7
+        case strIngredient8
+        case strIngredient9
+        case strIngredient10
+        case strIngredient11
+        case strIngredient12
+        case strIngredient13
+        case strIngredient14
+        case strIngredient15
+        
+        case strMeasure1
+        case strMeasure2
+        case strMeasure3
+        case strMeasure4
+        case strMeasure5
+        case strMeasure6
+        case strMeasure7
+        case strMeasure8
+        case strMeasure9
+        case strMeasure10
+        case strMeasure11
+        case strMeasure12
+        case strMeasure13
+        case strMeasure14
+        case strMeasure15
+        
+        case strImageSource
+        case strImageAttribution
+        case strCreativeCommonsConfirmed
+        case dateModified
+    }
 }
 
 struct Drinks: Codable {
-    var drinks: [DrinkObject?]
+    var drinks: [DrinkObject]
 }
