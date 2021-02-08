@@ -2,14 +2,11 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var showResultList: Bool
-    @ObservedObject var drinkResultArray: DrinkResults
     @ObservedObject var errorView: ErrorView
-    @State private var searchText = ""
-    @State private var searchType: Int = SearchType.name.asInt()
+    @ObservedObject var viewModel: ViewModel
+    @State var searchType: Int = SearchType.name.asInt()
     @State var showResultView: Bool = false
-    
-    let networkManager = NetworkManager()
-    
+        
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -32,33 +29,19 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        SearchBar(searchText: $searchText, errorView: errorView, oncommit: {
+                        SearchBar(viewModel: viewModel, errorView: errorView, oncommit: {
+                            viewModel.fetchDrinksListByName()
+                            showResultList = true
                             
-                            networkManager.getDrinkJSON(searchString: searchText, searchType: searchType, completion: { result, error in
-                                if error != nil {
-                                    DispatchQueue.main.async {
-                                        errorView.showErrorView = true
-                                        showResultList = false
-                                    }
-                                }
-                                
-                                DispatchQueue.main.async {
-                                    if let drinks = result?.drinks {
-                                        drinkResultArray.drinkResults.removeAll()
-                                        drinkResultArray.drinkResults.append(contentsOf: drinks)
-                                        showResultList = true
-                                    }
-                                }
-                            })
                         })
-                        .background(NavigationLink("", destination: DrinkListView(showResultView: $showResultView, drinkResultArray: drinkResultArray, showListView: showResultList), isActive: $showResultList))
+                        .background(NavigationLink("", destination: DrinkListView(showResultView: $showResultView, viewModel: viewModel, showListView: showResultList, searchType: searchType), isActive: $showResultList))
                         
                         RadioButtonGroups { selected in
                             self.searchType = selected
                         }
                         
                         if errorView.showErrorView {
-                            Text("Could not find anything matching \(searchText)")
+                            Text("Could not find anything matching \(viewModel.searchString.string as String)")
                                 .padding(10)
                                 .background(Color.white)
                                 .foregroundColor(Color.red)
@@ -70,6 +53,8 @@ struct HomeView: View {
                     }
                 }
             }
-        }.accentColor(Colors.zeus)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(Colors.zeus)
     }
 }

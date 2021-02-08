@@ -1,5 +1,5 @@
-import Foundation
+import SwiftUI
 
 class SearchString: ObservableObject {
-    @Published var searchString: String = ""
+    @Published var string: String = ""
 }

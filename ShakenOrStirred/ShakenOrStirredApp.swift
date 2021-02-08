@@ -4,7 +4,7 @@ import SwiftUI
 struct ShakenOrStirredApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(drinkResultsArray: DrinkResults(), errorView: ErrorView())
+            ContentView(viewModel: ViewModel(), errorView: ErrorView())
         }
     }
 }

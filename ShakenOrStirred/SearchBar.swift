@@ -1,14 +1,15 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @Binding var searchText: String
+    @ObservedObject var viewModel: ViewModel
     @ObservedObject var errorView: ErrorView
     @State private var isEditing = false
+    
     var oncommit: ()->()
     
     var body: some View {
         HStack {
-            TextField("Search ...", text: $searchText, onCommit: oncommit)
+            TextField("Search ...", text: $viewModel.searchString.string, onCommit: oncommit)
                 .foregroundColor(Colors.saddle)
                 .padding(7)
                 .padding(.horizontal, 25)
@@ -23,7 +24,7 @@ struct SearchBar: View {
                     
                     if isEditing {
                         Button(action: {
-                            self.searchText = ""
+                            viewModel.searchString.string = ""
                             errorView.showErrorView = false
                         }) {
                             Image(systemName: "multiply.circle.fill")
@@ -41,7 +42,7 @@ struct SearchBar: View {
             if isEditing {
                 Button(action: {
                     self.isEditing = false
-                    self.searchText = ""
+                    self.viewModel.searchString.string = ""
                     errorView.showErrorView = false
                     UIApplication.shared.endEditing()
                 }) {

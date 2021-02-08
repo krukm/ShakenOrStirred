@@ -1,48 +1,51 @@
 import SwiftUI
 
 struct ResultView: View {
-    @ObservedObject var drinkResultsArray: DrinkResults
+    @ObservedObject var viewModel: ViewModel
+    @State var searchType: Int
     var drinkNumber: Int
     
     var body: some View {
-        let urlString = drinkResultsArray.drinkResults[drinkNumber].strDrinkThumb
+        let result = drinkResultType(searchType: searchType, drinkArray: viewModel.drinks)
+        
+        let urlString = result[drinkNumber].strDrinkThumb
         let url = URL(string: urlString ?? "")
         
-        let name = drinkResultsArray.drinkResults[drinkNumber].strDrink
-        let catergory = drinkResultsArray.drinkResults[drinkNumber].strCategory
-        let instructions = drinkResultsArray.drinkResults[drinkNumber].strInstructions
+        let name = result[drinkNumber].strDrink
+        let catergory = result[drinkNumber].strCategory
+        let instructions = result[drinkNumber].strInstructions
         
-        let ingredient1 = drinkResultsArray.drinkResults[drinkNumber].strIngredient1 ?? ""
-        let ingredient2 = drinkResultsArray.drinkResults[drinkNumber].strIngredient2
-        let ingredient3 = drinkResultsArray.drinkResults[drinkNumber].strIngredient3
-        let ingredient4 = drinkResultsArray.drinkResults[drinkNumber].strIngredient4
-        let ingredient5 = drinkResultsArray.drinkResults[drinkNumber].strIngredient5
-        let ingredient6 = drinkResultsArray.drinkResults[drinkNumber].strIngredient6
-        let ingredient7 = drinkResultsArray.drinkResults[drinkNumber].strIngredient7
-        let ingredient8 = drinkResultsArray.drinkResults[drinkNumber].strIngredient8
-        let ingredient9 = drinkResultsArray.drinkResults[drinkNumber].strIngredient9
-        let ingredient10 = drinkResultsArray.drinkResults[drinkNumber].strIngredient10
-        let ingredient11 = drinkResultsArray.drinkResults[drinkNumber].strIngredient11
-        let ingredient12 = drinkResultsArray.drinkResults[drinkNumber].strIngredient12
-        let ingredient13 = drinkResultsArray.drinkResults[drinkNumber].strIngredient13
-        let ingredient14 = drinkResultsArray.drinkResults[drinkNumber].strIngredient14
-        let ingredient15 = drinkResultsArray.drinkResults[drinkNumber].strIngredient15
+        let ingredient1 = result[drinkNumber].strIngredient1 ?? ""
+        let ingredient2 = result[drinkNumber].strIngredient2
+        let ingredient3 = result[drinkNumber].strIngredient3
+        let ingredient4 = result[drinkNumber].strIngredient4
+        let ingredient5 = result[drinkNumber].strIngredient5
+        let ingredient6 = result[drinkNumber].strIngredient6
+        let ingredient7 = result[drinkNumber].strIngredient7
+        let ingredient8 = result[drinkNumber].strIngredient8
+        let ingredient9 = result[drinkNumber].strIngredient9
+        let ingredient10 = result[drinkNumber].strIngredient10
+        let ingredient11 = result[drinkNumber].strIngredient11
+        let ingredient12 = result[drinkNumber].strIngredient12
+        let ingredient13 = result[drinkNumber].strIngredient13
+        let ingredient14 = result[drinkNumber].strIngredient14
+        let ingredient15 = result[drinkNumber].strIngredient15
         
-        let measurement1 = drinkResultsArray.drinkResults[drinkNumber].strMeasure1 ?? ""
-        let measurement2 = drinkResultsArray.drinkResults[drinkNumber].strMeasure2
-        let measurement3 = drinkResultsArray.drinkResults[drinkNumber].strMeasure3
-        let measurement4 = drinkResultsArray.drinkResults[drinkNumber].strMeasure4
-        let measurement5 = drinkResultsArray.drinkResults[drinkNumber].strMeasure5
-        let measurement6 = drinkResultsArray.drinkResults[drinkNumber].strMeasure6
-        let measurement7 = drinkResultsArray.drinkResults[drinkNumber].strMeasure7
-        let measurement8 = drinkResultsArray.drinkResults[drinkNumber].strMeasure8
-        let measurement9 = drinkResultsArray.drinkResults[drinkNumber].strMeasure9
-        let measurement10 = drinkResultsArray.drinkResults[drinkNumber].strMeasure10
-        let measurement11 = drinkResultsArray.drinkResults[drinkNumber].strMeasure11
-        let measurement12 = drinkResultsArray.drinkResults[drinkNumber].strMeasure12
-        let measurement13 = drinkResultsArray.drinkResults[drinkNumber].strMeasure13
-        let measurement14 = drinkResultsArray.drinkResults[drinkNumber].strMeasure14
-        let measurement15 = drinkResultsArray.drinkResults[drinkNumber].strMeasure15
+        let measurement1 = result[drinkNumber].strMeasure1 ?? ""
+        let measurement2 = result[drinkNumber].strMeasure2
+        let measurement3 = result[drinkNumber].strMeasure3
+        let measurement4 = result[drinkNumber].strMeasure4
+        let measurement5 = result[drinkNumber].strMeasure5
+        let measurement6 = result[drinkNumber].strMeasure6
+        let measurement7 = result[drinkNumber].strMeasure7
+        let measurement8 = result[drinkNumber].strMeasure8
+        let measurement9 = result[drinkNumber].strMeasure9
+        let measurement10 = result[drinkNumber].strMeasure10
+        let measurement11 = result[drinkNumber].strMeasure11
+        let measurement12 = result[drinkNumber].strMeasure12
+        let measurement13 = result[drinkNumber].strMeasure13
+        let measurement14 = result[drinkNumber].strMeasure14
+        let measurement15 = result[drinkNumber].strMeasure15
         
         VStack(alignment: .center, spacing: 8) {
             Group {
@@ -210,5 +213,9 @@ struct ResultView: View {
     
     func convertClToOz(double: Double) -> String {
         return String(format: "%.1f", (double * 0.33814))
+    }
+    
+    func drinkResultType(searchType: Int, drinkArray: Drinks) -> [Drink] {
+        return viewModel.drinks.drinks
     }
 }
