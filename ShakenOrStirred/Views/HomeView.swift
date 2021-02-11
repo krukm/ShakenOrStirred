@@ -1,12 +1,9 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var showResultList: Bool
-    @ObservedObject var errorView: ErrorView
     @ObservedObject var viewModel: ViewModel
     @State var searchType: Int = SearchType.name.asInt()
-    @State var showResultView: Bool = false
-        
+
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
@@ -29,19 +26,17 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        SearchBar(viewModel: viewModel, errorView: errorView, oncommit: {
-                            viewModel.fetchDrinksListByName()
-                            showResultList = true
-                            
-                        })
-                        .background(NavigationLink("", destination: DrinkListView(showResultView: $showResultView, viewModel: viewModel, showListView: showResultList, searchType: searchType), isActive: $showResultList))
-                        
+                        NavigationLink(destination: DrinkListView(viewModel: viewModel, searchType: searchType), isActive: $viewModel.showResultList) {
+                                SearchBar(viewModel: viewModel, oncommit: {
+                                    viewModel.postResults()
+                                })
+                        }
                         RadioButtonGroups { selected in
                             self.searchType = selected
                         }
                         
-                        if errorView.showErrorView {
-                            Text("Could not find anything matching \(viewModel.searchString.string as String)")
+                        if viewModel.fetchError {
+                            Text("Could not find anything matching \(viewModel.searchString)")
                                 .padding(10)
                                 .background(Color.white)
                                 .foregroundColor(Color.red)

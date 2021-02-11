@@ -2,14 +2,13 @@ import SwiftUI
 
 struct SearchBar: View {
     @ObservedObject var viewModel: ViewModel
-    @ObservedObject var errorView: ErrorView
     @State private var isEditing = false
     
     var oncommit: ()->()
     
     var body: some View {
         HStack {
-            TextField("Search ...", text: $viewModel.searchString.string, onCommit: oncommit)
+            TextField("Search ...", text: $viewModel.searchString, onCommit: oncommit)
                 .foregroundColor(Colors.saddle)
                 .padding(7)
                 .padding(.horizontal, 25)
@@ -24,8 +23,8 @@ struct SearchBar: View {
                     
                     if isEditing {
                         Button(action: {
-                            viewModel.searchString.string = ""
-                            errorView.showErrorView = false
+                            viewModel.searchString = ""
+                            viewModel.fetchError = false
                         }) {
                             Image(systemName: "multiply.circle.fill")
                                 .foregroundColor(Colors.wafer)
@@ -36,14 +35,14 @@ struct SearchBar: View {
                 .padding(.horizontal, 10)
                 .onTapGesture {
                     self.isEditing = true
-                    errorView.showErrorView = false
+                    viewModel.fetchError = false
                 }
             
             if isEditing {
                 Button(action: {
                     self.isEditing = false
-                    self.viewModel.searchString.string = ""
-                    errorView.showErrorView = false
+                    self.viewModel.searchString = ""
+                    viewModel.fetchError = false
                     UIApplication.shared.endEditing()
                 }) {
                     Text("Cancel")

@@ -1,6 +1,6 @@
 import Foundation
 
-class IngredientObject: Codable, Identifiable {
+class Ingredient: Codable, Identifiable {
     var id: String
     var strIngredient: String?
     var strDescription: String?
@@ -14,5 +14,5 @@ class IngredientObject: Codable, Identifiable {
 }
 
 class Ingredients: Codable {
-    var ingredients: [IngredientObject]
+    var ingredients: [Ingredient]
 }
