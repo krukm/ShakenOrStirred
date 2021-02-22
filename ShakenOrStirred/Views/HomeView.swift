@@ -15,7 +15,6 @@ struct HomeView: View {
                         .edgesIgnoringSafeArea(.all)
                     
                     VStack(spacing: 25) {
-                        Spacer(minLength: 50)
                         
                         Text("Let's have a Drink!")
                             .font(Font.system(size: 45))
@@ -26,17 +25,30 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                        NavigationLink(destination: DrinkListView(viewModel: viewModel, searchType: searchType), isActive: $viewModel.showResultList) {
-                                SearchBar(viewModel: viewModel, oncommit: {
-                                    viewModel.postResults()
-                                })
-                        }
+                        SearchBar(viewModel: viewModel, oncommit: {
+                            viewModel.subscribeByName()
+                        })
+                        .background(NavigationLink("", destination: ResultListView(viewModel: viewModel)))
+                            
                         RadioButtonGroups { selected in
                             self.searchType = selected
                         }
                         
+                        Button(action: {
+                            viewModel.fetchRandomDrink()
+                            print("Random drink button tapped")
+                        }) {
+                            Text("Try random?")
+                                .foregroundColor(Colors.saddle)
+                                .padding(10)
+                                .padding(.horizontal, 50)
+                                .background(Colors.arrowTown)
+                                .cornerRadius(5)
+                        }
+
+                        
                         if viewModel.fetchError {
-                            Text("Could not find anything matching \(viewModel.searchString)")
+                            Text("Oh noes!! \(viewModel.searchString) wasn't found :(")
                                 .padding(10)
                                 .background(Color.white)
                                 .foregroundColor(Color.red)
@@ -44,7 +56,7 @@ struct HomeView: View {
                                 .transition(AnyTransition.asymmetric(insertion: .scale, removal: .opacity).animation(.easeInOut(duration: 0.5)))
                         }
                         
-                        Spacer(minLength: 300)
+                        ResultListView(viewModel: viewModel)
                     }
                 }
             }

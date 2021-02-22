@@ -2,50 +2,49 @@ import SwiftUI
 
 struct ResultView: View {
     @ObservedObject var viewModel: ViewModel
-    @State var searchType: Int
     var drinkNumber: Int
     
     var body: some View {
-        let result = drinkResultType(searchType: searchType, drinkArray: viewModel.drinks)
+        let result = viewModel.drinks.drinks[drinkNumber]
         
-        let urlString = result[drinkNumber].strDrinkThumb
+        let urlString = result.strDrinkThumb
         let url = URL(string: urlString ?? "")
         
-        let name = result[drinkNumber].strDrink
-        let catergory = result[drinkNumber].strCategory
-        let instructions = result[drinkNumber].strInstructions
+        let name = result.strDrink
+        let catergory = result.strCategory
+        let instructions = result.strInstructions
         
-        let ingredient1 = result[drinkNumber].strIngredient1 ?? ""
-        let ingredient2 = result[drinkNumber].strIngredient2
-        let ingredient3 = result[drinkNumber].strIngredient3
-        let ingredient4 = result[drinkNumber].strIngredient4
-        let ingredient5 = result[drinkNumber].strIngredient5
-        let ingredient6 = result[drinkNumber].strIngredient6
-        let ingredient7 = result[drinkNumber].strIngredient7
-        let ingredient8 = result[drinkNumber].strIngredient8
-        let ingredient9 = result[drinkNumber].strIngredient9
-        let ingredient10 = result[drinkNumber].strIngredient10
-        let ingredient11 = result[drinkNumber].strIngredient11
-        let ingredient12 = result[drinkNumber].strIngredient12
-        let ingredient13 = result[drinkNumber].strIngredient13
-        let ingredient14 = result[drinkNumber].strIngredient14
-        let ingredient15 = result[drinkNumber].strIngredient15
+        let ingredient1 = result.strIngredient1 ?? ""
+        let ingredient2 = result.strIngredient2
+        let ingredient3 = result.strIngredient3
+        let ingredient4 = result.strIngredient4
+        let ingredient5 = result.strIngredient5
+        let ingredient6 = result.strIngredient6
+        let ingredient7 = result.strIngredient7
+        let ingredient8 = result.strIngredient8
+        let ingredient9 = result.strIngredient9
+        let ingredient10 = result.strIngredient10
+        let ingredient11 = result.strIngredient11
+        let ingredient12 = result.strIngredient12
+        let ingredient13 = result.strIngredient13
+        let ingredient14 = result.strIngredient14
+        let ingredient15 = result.strIngredient15
         
-        let measurement1 = result[drinkNumber].strMeasure1 ?? ""
-        let measurement2 = result[drinkNumber].strMeasure2
-        let measurement3 = result[drinkNumber].strMeasure3
-        let measurement4 = result[drinkNumber].strMeasure4
-        let measurement5 = result[drinkNumber].strMeasure5
-        let measurement6 = result[drinkNumber].strMeasure6
-        let measurement7 = result[drinkNumber].strMeasure7
-        let measurement8 = result[drinkNumber].strMeasure8
-        let measurement9 = result[drinkNumber].strMeasure9
-        let measurement10 = result[drinkNumber].strMeasure10
-        let measurement11 = result[drinkNumber].strMeasure11
-        let measurement12 = result[drinkNumber].strMeasure12
-        let measurement13 = result[drinkNumber].strMeasure13
-        let measurement14 = result[drinkNumber].strMeasure14
-        let measurement15 = result[drinkNumber].strMeasure15
+        let measurement1 = result.strMeasure1 ?? ""
+        let measurement2 = result.strMeasure2
+        let measurement3 = result.strMeasure3
+        let measurement4 = result.strMeasure4
+        let measurement5 = result.strMeasure5
+        let measurement6 = result.strMeasure6
+        let measurement7 = result.strMeasure7
+        let measurement8 = result.strMeasure8
+        let measurement9 = result.strMeasure9
+        let measurement10 = result.strMeasure10
+        let measurement11 = result.strMeasure11
+        let measurement12 = result.strMeasure12
+        let measurement13 = result.strMeasure13
+        let measurement14 = result.strMeasure14
+        let measurement15 = result.strMeasure15
         
         VStack(alignment: .center, spacing: 8) {
             Group {
@@ -213,9 +212,5 @@ struct ResultView: View {
     
     func convertClToOz(double: Double) -> String {
         return String(format: "%.1f", (double * 0.33814))
-    }
-    
-    func drinkResultType(searchType: Int, drinkArray: Drinks) -> [Drink] {
-        return viewModel.drinks.drinks
     }
 }

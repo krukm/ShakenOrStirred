@@ -23,7 +23,7 @@
 		DFDB32B625CB031D002E8838 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB32B525CB031D002E8838 /* RadioButton.swift */; };
 		DFDB32BB25CB0555002E8838 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB32BA25CB0555002E8838 /* RadioButtonGroup.swift */; };
 		DFDB331425CB4B31002E8838 /* IngredientObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB331325CB4B31002E8838 /* IngredientObject.swift */; };
-		DFDB332125CB59BB002E8838 /* DrinkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB332025CB59BB002E8838 /* DrinkListView.swift */; };
+		DFDB332125CB59BB002E8838 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB332025CB59BB002E8838 /* ResultListView.swift */; };
 		DFDB336825CDAEEA002E8838 /* IndexedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB336725CDAEEA002E8838 /* IndexedCollection.swift */; };
 		DFDB338B25CDE039002E8838 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB338A25CDE039002E8838 /* IconImageView.swift */; };
 		DFDB348A25CFC8D9002E8838 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDB348925CFC8D9002E8838 /* ViewModel.swift */; };
@@ -72,7 +72,7 @@
 		DFDB32B525CB031D002E8838 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		DFDB32BA25CB0555002E8838 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
 		DFDB331325CB4B31002E8838 /* IngredientObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientObject.swift; sourceTree = "<group>"; };
-		DFDB332025CB59BB002E8838 /* DrinkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListView.swift; sourceTree = "<group>"; };
+		DFDB332025CB59BB002E8838 /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
 		DFDB336725CDAEEA002E8838 /* IndexedCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedCollection.swift; sourceTree = "<group>"; };
 		DFDB338A25CDE039002E8838 /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		DFDB348925CFC8D9002E8838 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			children = (
 				DFAE4BAF25C3230100C8D3BA /* ApiImageView.swift */,
 				DF651A1625B886D1001F84A6 /* ContentView.swift */,
-				DFDB332025CB59BB002E8838 /* DrinkListView.swift */,
+				DFDB332025CB59BB002E8838 /* ResultListView.swift */,
 				DFF26D9325C1E401002BFE1A /* HomeView.swift */,
 				DFDB338A25CDE039002E8838 /* IconImageView.swift */,
 				DFDB32B525CB031D002E8838 /* RadioButton.swift */,
@@ -333,7 +333,7 @@
 				DFDB32BB25CB0555002E8838 /* RadioButtonGroup.swift in Sources */,
 				DFF26D4625B9E122002BFE1A /* SearchBar.swift in Sources */,
 				DFAE4CB625C9E70C00C8D3BA /* SearchType.swift in Sources */,
-				DFDB332125CB59BB002E8838 /* DrinkListView.swift in Sources */,
+				DFDB332125CB59BB002E8838 /* ResultListView.swift in Sources */,
 				DFDB338B25CDE039002E8838 /* IconImageView.swift in Sources */,
 				DF651A4825B89244001F84A6 /* Drink.swift in Sources */,
 				DFF26D9425C1E401002BFE1A /* HomeView.swift in Sources */,

@@ -1,13 +1,12 @@
-import Foundation
 import SwiftUI
+import Combine
 
-struct DrinkListView: View {
+struct ResultListView: View {
     @ObservedObject var viewModel: ViewModel
-    @State var searchType: Int
         
     var body: some View {
         List(viewModel.drinks.drinks.indexed(), id: \.1.self) { drink in
-            NavigationLink(destination: ResultView(viewModel: viewModel, searchType: searchType, drinkNumber: drink.index)) {
+            NavigationLink(destination: ResultView(viewModel: viewModel, drinkNumber: drink.index)) {
                 HStack {
                     IconImageView(imageURL: URL(string: drink.element.strDrinkThumb ?? ""))
                     Text("\(drink.element.strDrink)")
@@ -16,10 +15,14 @@ struct DrinkListView: View {
                 }
             }
         }
-        .padding(.top)
-        .colorMultiply(Colors.wafer)
-        .background(Colors.wafer)
-        .ignoresSafeArea(.all)
+        .background(Color.clear)
+    }
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = UIColor(Colors.arrowTown)
     }
 }
 
