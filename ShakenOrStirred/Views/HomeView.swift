@@ -26,7 +26,11 @@ struct HomeView: View {
                         Spacer()
                         
                         SearchBar(viewModel: viewModel, oncommit: {
-                            viewModel.subscribeByName()
+                            if searchType == SearchType.ingredient.asInt() {
+                                viewModel.fetchDrinksByIngredient()
+                            } else if searchType == SearchType.name.asInt() {
+                                viewModel.subscribeByName()
+                            }
                         })
                         .background(NavigationLink("", destination: ResultListView(viewModel: viewModel)))
                             
@@ -36,7 +40,7 @@ struct HomeView: View {
                         
                         Button(action: {
                             viewModel.fetchRandomDrink()
-                            print("Random drink button tapped")
+                            viewModel.fetchError = false
                         }) {
                             Text("Try random?")
                                 .foregroundColor(Colors.saddle)
@@ -56,7 +60,18 @@ struct HomeView: View {
                                 .transition(AnyTransition.asymmetric(insertion: .scale, removal: .opacity).animation(.easeInOut(duration: 0.5)))
                         }
                         
-                        ResultListView(viewModel: viewModel)
+                        if viewModel.isLoading {
+                            VStack {
+                                Spacer()
+                                ProgressView("Loading...")
+                                    .scaleEffect(2.0, anchor: .center)
+                                    .progressViewStyle(CircularProgressViewStyle(tint: Colors.wafer))
+                                    .foregroundColor(Colors.wafer)
+                                Spacer(minLength: 300)
+                            }
+                        } else {
+                            ResultListView(viewModel: viewModel)
+                        }
                     }
                 }
             }
